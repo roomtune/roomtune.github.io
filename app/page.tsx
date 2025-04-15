@@ -14,7 +14,7 @@ export default function Home() {
             <h1 className="heading-xl mb-6 opacity-0 animate-fadeIn">
               Transform your acoustic experience.
             </h1>
-            <p className="text-xl mb-8">
+            <p className="text-xl mb-8 opacity-0 animate-fadeInDelayed">
               Use RoomTune to transform your listening environment. Our AR-based acoustic simulation technology makes any room sound better.
             </p>
             <div className="flex flex-wrap gap-4">
