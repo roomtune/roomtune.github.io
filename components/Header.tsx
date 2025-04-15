@@ -1,14 +1,30 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <header className="bg-white shadow-sm">
+    <header className={`bg-white fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      scrolled ? 'shadow-md' : 'shadow-sm'
+    }`}>
       <div className="container-wide py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
