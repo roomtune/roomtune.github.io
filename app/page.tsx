@@ -11,7 +11,7 @@ export default function Home() {
       <section className="bg-gradient-to-r from-primary to-secondary text-white py-16 md:py-24">
         <div className="container-wide">
           <div className="max-w-3xl">
-            <h1 className="heading-xl mb-6">
+            <h1 className="heading-xl mb-6 opacity-0 animate-fadeIn">
               Transform your acoustic experience.
             </h1>
             <p className="text-xl mb-8">
