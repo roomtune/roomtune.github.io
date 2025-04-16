@@ -29,6 +29,52 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Video Showcase Section */}
+      <section className="py-20 bg-darker relative overflow-hidden">
+        <div className="container-wide">
+          <h2 className="heading-lg text-center mb-12 text-gradient">
+            See RoomTune in Action
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Product Demo Video */}
+            <div className="card group">
+              <div className="aspect-video rounded-lg overflow-hidden bg-darker/50 border border-primary/20">
+                {/* Replace with your video embed code or placeholder */}
+                <div className="w-full h-full flex items-center justify-center">
+                  <div className="text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 mx-auto mb-4 text-primary/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <p className="text-white/60">Product Demo Video</p>
+                  </div>
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold mt-4 mb-2 text-white">How RoomTune Works</h3>
+              <p className="text-white/80">Watch how our AR technology analyzes and optimizes your room's acoustics in real-time.</p>
+            </div>
+
+            {/* Customer Testimonial Video */}
+            <div className="card group">
+              <div className="aspect-video rounded-lg overflow-hidden bg-darker/50 border border-primary/20">
+                {/* Replace with your video embed code or placeholder */}
+                <div className="w-full h-full flex items-center justify-center">
+                  <div className="text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 mx-auto mb-4 text-primary/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <p className="text-white/60">Customer Testimonial</p>
+                  </div>
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold mt-4 mb-2 text-white">Real User Experience</h3>
+              <p className="text-white/80">Hear from our customers about how RoomTune transformed their audio experience.</p>
+            </div>
+          </div>
+        </div>
+      </section>
       
       {/* Waveform Section */}
       <section className="py-16 bg-darker relative overflow-hidden">
