@@ -8,14 +8,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#72b8dc', // Bright blue accent from the HI-FI text glow and waveform
-        secondary: '#86c4e4', // Lighter variation of the accent blue
-        dark: '#0f151e', // Dark navy background
-        darker: '#081018', // Even darker version for contrast
-        light: '#F8F8F8',  
-        metal: '#8c9cb0', // Metallic silver/gray from the speaker rim and volume knob
-        metalDark: '#414a57', // Darker metal accent
-        black: '#000000', // Pure black for speaker elements
+        primary: '#00a8ff', // Brighter, more vibrant blue
+        secondary: '#0097e6', // Slightly darker blue for contrast
+        dark: '#1e272e', // Slightly lighter dark background
+        darker: '#151b20', // Slightly lighter darker background
+        light: '#ffffff', // Pure white for better contrast
+        metal: '#a4b0be', // Lighter metallic color
+        metalDark: '#57606f', // Lighter metal accent
+        black: '#000000',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
@@ -33,12 +33,12 @@ module.exports = {
         },
         glowPulse: {
           '0%, 100%': { 
-            textShadow: '0 0 8px rgba(114, 184, 220, 0.7)',
+            textShadow: '0 0 10px rgba(0, 168, 255, 0.8)',
             filter: 'brightness(1)'
           },
           '50%': { 
-            textShadow: '0 0 15px rgba(114, 184, 220, 0.9)',
-            filter: 'brightness(1.2)'
+            textShadow: '0 0 20px rgba(0, 168, 255, 1)',
+            filter: 'brightness(1.3)'
           },
         },
       },
