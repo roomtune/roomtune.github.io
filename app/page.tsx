@@ -138,25 +138,6 @@ export default function Home() {
         </div>
       </section>
       
-      {/* Testimonials Section */}
-      <section className="py-20 bg-darker">
-        <div className="container-wide">
-          <div className="flex flex-col items-center">
-            <div className="max-w-4xl mx-auto text-center space-y-12">
-              <blockquote className="text-2xl font-medium italic text-white/90">
-                "RoomTune was an eye-opener, the proof was in the listening, and it was remarkable."
-              </blockquote>
-              <blockquote className="text-2xl font-medium italic text-white/90">
-                "For studio setup, it's not even close. I'm for RoomTune all the way."
-              </blockquote>
-              <blockquote className="text-2xl font-medium italic text-white/90">
-                "RoomTune is an audio professional's dream come true."
-              </blockquote>
-            </div>
-          </div>
-        </div>
-      </section>
-      
       {/* Business Section */}
       <section className="py-20 bg-dark border-t border-primary/20">
         <div className="container-wide">
