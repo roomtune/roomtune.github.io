@@ -1,202 +1,179 @@
-import Link from 'next/link';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import Link from "next/link";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function TechnologyPage() {
+  const coreFeatures = [
+    {
+      title: "Room Analysis",
+      description:
+        "Our AR scanning system builds a precise digital model of your room and highlights the acoustic constraints that matter most.",
+      bullets: [
+        "Identify reflective surfaces and key problem zones",
+        "Map response behavior across listening positions",
+        "Expose resonances and standing-wave hotspots",
+        "Measure reverberation trends by region",
+      ],
+      href: "/technology",
+    },
+    {
+      title: "Acoustic Simulation",
+      description:
+        "Model outcomes before spending money on treatment or moving gear. Evaluate options with clear tradeoffs.",
+      bullets: [
+        "Test treatment placement scenarios",
+        "Compare alternate speaker layouts",
+        "Evaluate listening positions against goals",
+        "Review before-and-after deltas clearly",
+      ],
+      href: "/technology",
+    },
+    {
+      title: "Optimization",
+      description:
+        "Convert analysis and simulation data into practical recommendations for your exact space and constraints.",
+      bullets: [
+        "Treatment suggestions prioritized by impact",
+        "Speaker/listener placement guidance",
+        "Use-case presets for music, film, and voice",
+        "Actionable improvement roadmap",
+      ],
+      href: "/technology",
+    },
+  ];
+
+  const applications = [
+    "Home Audio",
+    "Studio and Professional",
+    "Commercial Spaces",
+    "Hospitality and Events",
+  ];
+
   return (
-    <main className="min-h-screen pt-[72px]">
+    <main className="min-h-screen bg-dark pt-[72px] text-white">
       <Header />
-      
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary to-secondary text-white py-16 md:py-24">
+
+      <section className="section-pad border-b border-white/10 bg-darker">
         <div className="container-wide">
-          <div className="max-w-3xl">
-            <h1 className="heading-xl mb-6">
+          <p className="label-chip">Platform</p>
+          <div className="mt-6 max-w-4xl">
+            <h1 className="heading-xl mb-6 !text-4xl md:!text-6xl lg:!text-7xl">
               Our Technology
             </h1>
-            <p className="text-xl mb-8">
-              RoomTune's AR-based acoustic simulation technology redefines how we experience sound in any environment.
+            <p className="text-lg text-white/80 md:text-2xl">
+              RoomTune combines room capture, acoustic simulation, and optimization logic into one
+              decision layer for high-confidence tuning.
             </p>
           </div>
         </div>
       </section>
-      
-      {/* Technology Overview */}
-      <section className="py-16 bg-white">
+
+      <section className="section-pad border-b border-white/10 bg-dark">
         <div className="container-wide">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="heading-lg mb-6">AR-Based Acoustic Modeling</h2>
-              <p className="text-lg mb-4">
-                RoomTune uses augmented reality to scan and analyze your room's acoustic properties with unprecedented accuracy.
+          <div className="grid items-center gap-12 md:grid-cols-2">
+            <div className="space-y-5">
+              <h2 className="heading-lg">AR-Based Acoustic Modeling</h2>
+              <p className="text-white/80">
+                RoomTune uses augmented reality to scan and analyze room geometry with high
+                precision, producing a digital acoustic context for each listening space.
               </p>
-              <p className="text-lg mb-4">
-                Our technology creates a detailed 3D model of your space, identifying acoustic challenges that affect sound quality.
+              <p className="text-white/80">
+                The system identifies the most meaningful sound interactions, then turns those into
+                concrete setup and treatment decisions teams can trust.
               </p>
-              <p className="text-lg">
-                By understanding how sound waves interact with your specific environment, RoomTune provides customized solutions for optimal acoustic performance.
+              <p className="text-white/80">
+                Instead of guesswork, you get measurable outcomes aligned to your room, equipment,
+                and target experience.
               </p>
             </div>
-            <div className="bg-gray-200 h-80 rounded-lg flex items-center justify-center">
-              <span className="text-gray-400 text-lg">AR Technology Image</span>
+            <div className="glass-panel flex h-80 items-center justify-center border border-white/10">
+              <span className="text-sm uppercase tracking-[0.2em] text-white/50">
+                AR Modeling Visual
+              </span>
             </div>
           </div>
         </div>
       </section>
-      
-      {/* Feature Sections */}
-      <section className="py-16 bg-light">
+
+      <section className="section-pad border-b border-white/10 bg-darker">
         <div className="container-wide">
-          <div className="max-w-4xl mx-auto mb-16">
-            <h2 className="heading-lg text-center mb-6">
-              Key Features
-            </h2>
-            <p className="text-lg text-center">
-              RoomTune's suite of technologies work together to create the perfect acoustic environment.
+          <div className="mb-14 max-w-4xl">
+            <p className="label-chip">Capabilities</p>
+            <h2 className="heading-lg mt-6">Core system features</h2>
+            <p className="mt-4 text-white/80">
+              RoomTune components work together in sequence: diagnose, model, and optimize.
             </p>
           </div>
-          
-          <div className="space-y-20">
-            {/* Feature 1 */}
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h3 className="heading-md mb-4">Room Analysis</h3>
-                <p className="mb-4">
-                  Our advanced AR scanning technology creates a detailed model of your room's acoustic properties.
-                </p>
-                <ul className="list-disc pl-5 space-y-2">
-                  <li>Identifies reflective surfaces and acoustic problem areas</li>
-                  <li>Maps frequency response throughout the space</li>
-                  <li>Detects modal resonances and standing waves</li>
-                  <li>Analyzes reverberation patterns and decay times</li>
-                </ul>
-                <div className="mt-6">
-                  <Link href="/technology/room-analysis" className="btn-primary">
-                    Learn more about Room Analysis
+
+          <div className="space-y-8">
+            {coreFeatures.map((feature) => (
+              <article key={feature.title} className="glass-panel grid gap-8 p-8 md:grid-cols-5">
+                <div className="md:col-span-3">
+                  <h3 className="heading-md mb-3">{feature.title}</h3>
+                  <p className="mb-5 text-white/80">{feature.description}</p>
+                  <ul className="space-y-2 text-sm text-white/75">
+                    {feature.bullets.map((bullet) => (
+                      <li key={bullet} className="flex items-start gap-3">
+                        <span className="mt-2 inline-block h-1.5 w-1.5 rounded-full bg-primary" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="glass-panel flex min-h-48 items-center justify-center md:col-span-2">
+                  <span className="text-xs uppercase tracking-[0.2em] text-white/45">
+                    {feature.title} Visual
+                  </span>
+                </div>
+                <div className="md:col-span-5">
+                  <Link href={feature.href} className="btn-secondary">
+                    Explore {feature.title}
                   </Link>
                 </div>
-              </div>
-              <div className="bg-gray-200 h-60 rounded-lg flex items-center justify-center">
-                <span className="text-gray-400 text-lg">Room Analysis Visualization</span>
-              </div>
-            </div>
-            
-            {/* Feature 2 */}
-            <div className="grid md:grid-cols-2 gap-12 items-center md:order-1">
-              <div className="md:order-2">
-                <h3 className="heading-md mb-4">Acoustic Simulation</h3>
-                <p className="mb-4">
-                  Preview acoustic changes before making any physical modifications to your space.
-                </p>
-                <ul className="list-disc pl-5 space-y-2">
-                  <li>Simulate different acoustic treatment placements</li>
-                  <li>Test various speaker configurations</li>
-                  <li>Evaluate listener positions for optimal experience</li>
-                  <li>Compare before/after sound profiles</li>
-                </ul>
-                <div className="mt-6">
-                  <Link href="/technology/simulation" className="btn-primary">
-                    Learn more about Simulation
-                  </Link>
-                </div>
-              </div>
-              <div className="bg-gray-200 h-60 rounded-lg flex items-center justify-center md:order-1">
-                <span className="text-gray-400 text-lg">Simulation Visualization</span>
-              </div>
-            </div>
-            
-            {/* Feature 3 */}
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h3 className="heading-md mb-4">Optimization</h3>
-                <p className="mb-4">
-                  Get personalized recommendations to achieve the perfect sound in your specific space.
-                </p>
-                <ul className="list-disc pl-5 space-y-2">
-                  <li>AI-powered acoustic treatment suggestions</li>
-                  <li>Speaker placement optimization</li>
-                  <li>Real-time frequency response correction</li>
-                  <li>Room calibration settings for different use cases</li>
-                </ul>
-                <div className="mt-6">
-                  <Link href="/technology/optimization" className="btn-primary">
-                    Learn more about Optimization
-                  </Link>
-                </div>
-              </div>
-              <div className="bg-gray-200 h-60 rounded-lg flex items-center justify-center">
-                <span className="text-gray-400 text-lg">Optimization Visualization</span>
-              </div>
-            </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
-      
-      {/* Use Cases Section */}
-      <section className="py-16 bg-white">
+
+      <section className="section-pad border-b border-white/10 bg-dark">
         <div className="container-wide">
-          <h2 className="heading-lg text-center mb-12">
-            Applications
-          </h2>
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="bg-light p-8 rounded shadow-sm text-center">
-              <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                </svg>
+          <h2 className="heading-lg mb-10">Applications</h2>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {applications.map((app) => (
+              <div key={app} className="glass-panel p-6">
+                <div className="mb-4 h-2 w-12 rounded-full bg-primary/75" />
+                <h3 className="font-heading text-xl text-white">{app}</h3>
+                <p className="mt-3 text-sm text-white/75">
+                  Built to support acoustic decision-making in this environment.
+                </p>
               </div>
-              <h3 className="heading-md mb-4">Home Audio</h3>
-              <p>Transform your living space into an acoustically optimized listening environment.</p>
-            </div>
-            <div className="bg-light p-8 rounded shadow-sm text-center">
-              <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
-              </div>
-              <h3 className="heading-md mb-4">Studio & Professional</h3>
-              <p>Create a reference-quality listening environment for recording, mixing, and mastering.</p>
-            </div>
-            <div className="bg-light p-8 rounded shadow-sm text-center">
-              <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" />
-                </svg>
-              </div>
-              <h3 className="heading-md mb-4">Commercial Spaces</h3>
-              <p>Optimize acoustics in conference rooms, auditoriums, restaurants, and other public venues.</p>
-            </div>
-            <div className="bg-light p-8 rounded shadow-sm text-center">
-              <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                </svg>
-              </div>
-              <h3 className="heading-md mb-4">Home Audio</h3>
-              <p>Transform your living space into an acoustically optimized listening environment.</p>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-pad bg-darker">
+        <div className="container-wide">
+          <div className="glass-panel mx-auto max-w-4xl p-10 text-center">
+            <p className="label-chip">Next Step</p>
+            <h2 className="heading-lg mt-6">Ready to hear the difference?</h2>
+            <p className="mt-4 text-white/80">
+              Join the waitlist to get product updates and early access opportunities.
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <Link href="/#waitlist" className="btn-primary">
+                Join waitlist
+              </Link>
+              <Link href="/about" className="btn-secondary">
+                Learn about RoomTune
+              </Link>
             </div>
           </div>
         </div>
       </section>
-      
-      {/* CTA Section */}
-      <section className="py-16 bg-primary text-white">
-        <div className="container-wide text-center">
-          <h2 className="heading-lg mb-8">
-            Ready to experience the RoomTune difference?
-          </h2>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/demo" className="btn-primary bg-white text-primary">
-              Try the Demo
-            </Link>
-            <Link href="/contact" className="btn-secondary bg-transparent border-white text-white hover:bg-white/20">
-              Contact Us
-            </Link>
-          </div>
-        </div>
-      </section>
-      
+
       <Footer />
     </main>
   );
-} 
+}

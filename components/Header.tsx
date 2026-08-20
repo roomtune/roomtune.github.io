@@ -1,66 +1,62 @@
 "use client";
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  
+
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 10);
     };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const navLinks = [
+    { href: "/technology", label: "Technology" },
+    { href: "/business", label: "Business" },
+    { href: "/about", label: "About" },
+  ];
+
   return (
-    <header className={`bg-dark fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-      scrolled ? 'shadow-md shadow-primary/20' : 'shadow-sm shadow-primary/10'
-    }`}>
+    <header
+      className={`fixed left-0 top-0 z-50 w-full border-b transition-all duration-300 ${
+        scrolled
+          ? "border-white/10 bg-dark/85 shadow-xl shadow-black/30 backdrop-blur-xl"
+          : "border-transparent bg-gradient-to-b from-black/55 to-transparent"
+      }`}
+    >
       <div className="container-wide py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <span className="text-2xl font-bold text-primary animate-glowPulse">RoomTune</span>
+          <Link href="/" className="flex items-center" aria-label="RoomTune home">
+            <Image src="/logo.svg" alt="RoomTune" width={160} height={32} priority />
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/technology" className="text-light hover:text-primary transition-colors">
-              Technology
-            </Link>
-            <Link href="/products" className="text-light hover:text-primary transition-colors">
-              Products
-            </Link>
-            <Link href="/business" className="text-light hover:text-primary transition-colors">
-              For Business
-            </Link>
-            <Link href="/support" className="text-light hover:text-primary transition-colors">
-              Support
-            </Link>
-            <Link href="/about" className="text-light hover:text-primary transition-colors">
-              About Us
-            </Link>
+          <nav className="hidden items-center space-x-8 md:flex">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium tracking-wide text-white/85 transition-colors hover:text-primary"
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
 
-          {/* CTA Button */}
           <div className="hidden md:block">
-            <Link href="/demo" className="btn-primary">
-              Try Demo
+            <Link href="/#waitlist" className="btn-primary">
+              Join waitlist
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-light"
+            className="text-light md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -76,38 +72,27 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4">
+          <nav className="mt-4 border-t border-white/10 pb-4 pt-4 md:hidden">
             <ul className="flex flex-col space-y-4">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="block text-light transition-colors hover:text-primary"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
               <li>
-                <Link href="/technology" className="block text-light hover:text-primary transition-colors">
-                  Technology
-                </Link>
-              </li>
-              <li>
-                <Link href="/products" className="block text-light hover:text-primary transition-colors">
-                  Products
-                </Link>
-              </li>
-              <li>
-                <Link href="/business" className="block text-light hover:text-primary transition-colors">
-                  For Business
-                </Link>
-              </li>
-              <li>
-                <Link href="/support" className="block text-light hover:text-primary transition-colors">
-                  Support
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="block text-light hover:text-primary transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/demo" className="btn-primary inline-block">
-                  Try Demo
+                <Link
+                  href="/#waitlist"
+                  className="btn-primary inline-flex"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Join waitlist
                 </Link>
               </li>
             </ul>
@@ -118,4 +103,4 @@ const Header = () => {
   );
 };
 
-export default Header; 
+export default Header;

@@ -1,0 +1,9 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#05070E"/>
+  <circle cx="915" cy="170" r="260" fill="#0F1728"/>
+  <circle cx="970" cy="230" r="190" fill="#111C33"/>
+  <path d="M120 375C210 320 300 430 390 375C480 320 570 430 660 375C750 320 840 430 930 375C1020 320 1110 430 1200 375" stroke="#6EE7FF" stroke-opacity="0.35" stroke-width="6"/>
+  <text x="120" y="246" fill="#E6ECFF" font-size="72" font-family="Inter, Arial, sans-serif" font-weight="700">Acoustic Intelligence</text>
+  <text x="120" y="322" fill="#E6ECFF" font-size="72" font-family="Inter, Arial, sans-serif" font-weight="700">for every space</text>
+  <text x="120" y="382" fill="#9CAFE2" font-size="30" font-family="Inter, Arial, sans-serif" font-weight="500">RoomTune</text>
+</svg>
